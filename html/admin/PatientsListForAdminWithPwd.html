@@ -1,0 +1,139 @@
+<!-- Patients_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="Patient_List_page">
+    <h1>List of Patients</h1>
+
+    <div>
+        <label for="searchPatient">Search Patient:</label>
+        <input type="text" id="searchPatient" name="searchPatient" placeholder="Enter ID or Name">
+        <button class="input-button" onclick="searchPatient()">Search</button>
+    </div>
+
+    <form id="PatientListForm">
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Lst Name</th>
+                <th>Email</th>
+                <th>UserName</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+            <!-- Table body for dynamic data -->
+<!--            <tbody id="patientTableBody"></tbody>-->
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@hawk.iit.edu</td>
+                <td>john</td>
+                <td>john</td>
+                <td><button class="input-button" type="button" onclick="navigateTo('updatePatientProfile')">Update</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <script>
+
+        async function searchPatient() {
+            const searchInput = document.getElementById('searchPatient').value;
+
+            try {
+                // Replace 'YOUR_SERVER_SEARCH_ENDPOINT' with the actual URL to fetch search result data
+                const response = await fetch(`YOUR_SERVER_SEARCH_ENDPOINT?searchInput=${searchInput}`);
+
+                if (!response.ok) {
+                    throw new Error('Error fetching search result data');
+                }
+
+                const searchData = await response.json();
+
+                // Populate the table with search result data
+                populateTable(searchData);
+
+            } catch (error) {
+                console.error('Error:', error);
+            }
+      }
+
+      function populateTable(data) {
+        const tableBody = document.getElementById('patientTableBody');
+
+        // Clear existing rows
+        tableBody.innerHTML = '';
+
+        // Populate table rows with data
+        data.forEach(patient => {
+            const row = tableBody.insertRow();
+            const idCell = row.insertCell(0);
+            const firstNameCell = row.insertCell(1);
+            const lastNameCell = row.insertCell(2);
+            const emailCell = row.insertCell(3);
+            const userNameCell = row.insertCell(4);
+            const passwordCell = row.insertCell(5);
+            const actionCell = row.insertCell(6);
+
+            idCell.textContent = patient.id;
+            firstNameCell.textContent = patient.firstName;
+            lastNameCell.textContent = patient.lastName;
+            emailCell.textContent = patient.email;
+            userNameCell.innerHTML = patient.userName;
+            passwordCell.innerHTML = patient.password;
+            actionCell.innerHTML = patient.actionCell;
+        });
+    }
+
+        function navigateTo(page) {
+            switch (page) {
+                case 'updatePatientProfile':
+                        window.location.href = 'updatePatientProfile.html';
+                        break;
+                default:
+                    console.log('Unknown page');
+                    break;
+            }
+        }
+
+        async function populatePatientTable() {
+            try {
+                const response = await fetch('YOUR_BACKEND_API_ENDPOINT');
+
+                if (!response.ok) {
+                    throw new Error('Error fetching patient data');
+                }
+
+                const data = await response.json();
+
+                const tableBody = document.getElementById('patientTableBody');
+
+                tableBody.innerHTML = '';
+
+                data.forEach(patient => {
+                    const row = tableBody.insertRow();
+                    row.insertCell(0).textContent = patient.id;
+                    row.insertCell(1).textContent = patient.name;
+                    row.insertCell(2).textContent = patient.email;
+                    row.insertCell(3).textContent = patient.username;
+                    row.insertCell(4).textContent = patient.password;
+                });
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Call the function to populate the table when the page is loaded
+        window.onload = populatePatientTable;
+    </script>
+</body> 
+</html>

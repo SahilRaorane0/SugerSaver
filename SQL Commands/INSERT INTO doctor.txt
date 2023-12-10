@@ -1,0 +1,9 @@
+INSERT INTO doctor VALUES (2,'Doctor', 'ID2', 'Doctor.id2@gmail.com', '123-546-7876', 'Female');
+INSERT INTO doctor VALUES (3,'Doctor', 'ID3', 'Doctor.id3@gmail.com', '245-214-1124', 'Female');
+INSERT INTO doctor VALUES (4,'Doctor', 'ID4', 'Doctor.id4@gmail.com', '652-789-7854', 'Female');
+INSERT INTO doctor VALUES (5,'Doctor', 'ID5', 'Doctor.id5@gmail.com', '321-564-6589', 'Female');
+INSERT INTO doctor VALUES (6,'Doctor', 'ID6', 'Doctor.id6@gmail.com', '789-852-3245', 'Female');
+INSERT INTO doctor VALUES (7,'Doctor', 'ID7', 'Doctor.id7@gmail.com', '885-325-1245', 'Female');
+INSERT INTO doctor VALUES (8,'Doctor', 'ID8', 'Doctor.id8@gmail.com', '311-755-6548', 'Female');
+INSERT INTO doctor VALUES (9,'Doctor', 'ID9', 'Doctor.id9@gmail.com', '422-998-7854', 'Female');
+INSERT INTO doctor VALUES (10,'Doctor', 'ID10', 'Doctor.id10@gmail.com', '789-111-245', 'Female');

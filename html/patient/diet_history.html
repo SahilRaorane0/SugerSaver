@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet History</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+       // Call the function to fetch and populate data when the page is loaded
+       fetchDataAndPopulateTable();
+   });
+
+   async function fetchDataAndPopulateTable() {
+       try {
+          // Make a GET request to your server endpoint
+          const response = await fetch('YOUR_BACKEND_API_ENDPOINT');
+
+          if (!response.ok) {
+               throw new Error('Error fetching data');
+          }
+
+          const data = await response.json();
+
+          const tableBody = document.getElementById('dietTableBody');
+
+           tableBody.innerHTML = '';
+
+           data.forEach(entry => {
+               const row = tableBody.insertRow();
+               const doctorCell = row.insertCell(0);
+               const patientCell = row.insertCell(1);
+               const dateCell = row.insertCell(2);
+               const suggestionCell = row.insertCell(3);
+
+               doctorCell.textContent = entry.doctorName;
+               patientCell.textContent = entry.patientId;
+               dateCell.textContent = entry.date;
+               suggestionCell.textContent = entry.dietSuggestion;
+           });
+
+       } catch (error) {
+           console.error('Error:', error);
+       }
+   }
+    </script>
+</head>
+
+<body class="dietHistory">
+
+<h1>Diet History</h1>
+
+    <table id="dietTable" border="1">
+        <thead>
+        <tr>
+            <th>Doctor Name</th>
+            <th>Patient ID</th>
+            <th>Date</th>
+            <th>Diet Suggestion</th>
+        </tr>
+        </thead>
+        <tbody id="dietTableBody"></tbody>
+    </table>
+
+</body>
+
+</html>

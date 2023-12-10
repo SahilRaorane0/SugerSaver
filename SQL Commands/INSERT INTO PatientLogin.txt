@@ -1,0 +1,7 @@
+INSERT INTO PatientLogin VALUES (4,'patient_user4', 'patientpass4');
+INSERT INTO PatientLogin VALUES (5,'patient_user5', 'patientpass5');
+INSERT INTO PatientLogin VALUES (6,'patient_user6', 'patientpass6');
+INSERT INTO PatientLogin VALUES (7,'patient_user7', 'patientpass7');
+INSERT INTO PatientLogin VALUES (8,'patient_user8', 'patientpass8');
+INSERT INTO PatientLogin VALUES (9,'patient_user9', 'patientpass9');
+INSERT INTO PatientLogin VALUES (10,'patient_user10', 'patientpass10');

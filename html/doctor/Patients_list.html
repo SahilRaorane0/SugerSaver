@@ -1,0 +1,172 @@
+<!-- Patients_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details</title>
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <script>
+
+        function navigateDoctorTo(page) {
+            console.log(`Navigating to ${page}`);
+            switch (page) {
+
+                case 'suggest_diet_form':
+                    window.location.href = 'suggest_diet_form.html';
+                    break;
+
+                default:
+                    console.log(`Unknown page: ${page}`);
+                    break;
+            }
+        }
+
+        // Function to disable buttons and input fields based on user role
+        function disableButtonsAndInputs(role) {
+
+            console.log('calling disable buttons and inputs');
+
+            const buttons = document.querySelectorAll('button');
+            const inputs = document.querySelectorAll('input');
+            const textareas = document.querySelectorAll('textarea');
+
+            // Loop through buttons and disable them
+            buttons.forEach(button => {
+                button.disabled = role === 'doctor';
+            });
+
+            // Loop through inputs and disable them
+            inputs.forEach(input => {
+                input.disabled = role === 'doctor';
+            });
+
+            textareas.forEach(textarea => {
+                    textarea.disabled = role === 'doctor';
+            });
+        }
+
+        // Function to check the user's role and disable buttons and input fields accordingly
+        function checkUserRole() {
+
+            console.log('calling checkUserRole');
+            const urlParams = new URLSearchParams(window.location.search);
+            const role = urlParams.get('role');
+            console.log('role - '+role);
+
+            disableButtonsAndInputs(role);
+        }
+
+        async function loadInitialData() {
+            try {
+                const response = await fetch('YOUR_SERVER_ENDPOINT');
+
+                if (!response.ok) {
+                    throw new Error('Error fetching initial data');
+                }
+
+                const initialData = await response.json();
+
+                populateTable(initialData);
+
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+                // Load 10 records initially
+                loadInitialData();
+                 checkUserRole();
+        });
+
+        async function searchPatient() {
+            const searchInput = document.getElementById('searchPatient').value;
+
+            try {
+                // Replace 'YOUR_SERVER_SEARCH_ENDPOINT' with the actual URL to fetch search result data
+                const response = await fetch(`YOUR_SERVER_SEARCH_ENDPOINT?searchInput=${searchInput}`);
+
+                if (!response.ok) {
+                    throw new Error('Error fetching search result data');
+                }
+
+                const searchData = await response.json();
+
+                // Populate the table with search result data
+                populateTable(searchData);
+
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        function populateTable(data) {
+            const tableBody = document.getElementById('patientTableBody');
+
+            // Clear existing rows
+            tableBody.innerHTML = '';
+
+            // Populate table rows with data
+            data.forEach(entry => {
+                const row = tableBody.insertRow();
+                const idCell = row.insertCell(0);
+                const nameCell = row.insertCell(1);
+                const emailCell = row.insertCell(2);
+                const personalDetailsCell = row.insertCell(3);
+                const medicalDetailsCell = row.insertCell(4);
+                const actionCell = row.insertCell(5);
+
+                idCell.textContent = entry.id;
+                nameCell.textContent = entry.name;
+                emailCell.textContent = entry.email;
+                personalDetailsCell.innerHTML = `<a href="personal_details.html?id=${entry.id}">View Personal Details</a>`;
+                medicalDetailsCell.innerHTML = `<a href="medical_records.html?id=${entry.id}">View Medical Details</a>`;
+                actionCell.innerHTML = `<button class="input-button" type="button" onclick="navigateTo('suggest_diet_form')">Submit Diet</button>`;
+            });
+        }
+    </script>
+
+    <!-- Add your CSS styles if needed -->
+</head>
+
+<body class="Patient_List_page">
+
+    <h1>List of Patients</h1>
+
+    <!-- Search Bar -->
+    <div>
+        <label for="searchPatient">Search Patient:</label>
+        <input type="text" id="searchPatient" name="searchPatient" placeholder="Enter Patient ID or Name">
+        <button class="input-button" onclick="searchPatient()">Search</button>
+    </div>
+
+    <!-- HTML content -->
+    <form id="PatientListForm" onload="checkUserRole()">
+        <table border="1">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Personal Details</th>
+                <th>Medical Details</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <!-- Table body for dynamic data -->
+<!--            <tbody id="patientTableBody"><tr>-->
+            <tbody><tr>
+                <td>1</td>
+                <td>John Doe</td>
+                <td>john.doe@example.com</td>
+                <td><a href="../patient/personal_details.html?role=doctor">View Personal Details</a></td>
+                <td><a href="medical_records.html?role=doctor">View Medical Details</a></td>
+                <td><button class="input-button" type="button"  onclick="navigateDoctorTo('suggest_diet_form')">Submit Diet</button></td>
+            </tr></tbody>
+        </table>
+    </form>
+
+</body>
+</html>

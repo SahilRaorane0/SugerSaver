@@ -1,0 +1,9 @@
+INSERT INTO DoctorLogin VALUES (2,'doctor_user2', 'doctorpass2');
+INSERT INTO DoctorLogin VALUES (3,'doctor_user3', 'doctorpass3');
+INSERT INTO DoctorLogin VALUES (4,'doctor_user4', 'doctorpass4');
+INSERT INTO DoctorLogin VALUES (5,'doctor_user5', 'doctorpass5');
+INSERT INTO DoctorLogin VALUES (6,'doctor_user6', 'doctorpass6');
+INSERT INTO DoctorLogin VALUES (7,'doctor_user7', 'doctorpass7');
+INSERT INTO DoctorLogin VALUES (8,'doctor_user8', 'doctorpass8');
+INSERT INTO DoctorLogin VALUES (9,'doctor_user9', 'doctorpass9');
+INSERT INTO DoctorLogin VALUES (10,'doctor_user10', 'doctorpass10');

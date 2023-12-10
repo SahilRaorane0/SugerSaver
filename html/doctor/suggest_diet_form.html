@@ -1,0 +1,38 @@
+<!-- suggest-diet-form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggest Diet Form</title>
+    <!-- Add your CSS styles if needed -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/doctorHome.js"></script>
+</head>
+<body class="submitDiet_page">
+    <h1>Suggest Diet</h1>
+
+    <form onsubmit="submitDiet(event)">
+        <!-- Add form fields for diet suggestion -->
+        <label for="doctorName">Doctor Name:</label>
+        <input type="text" id="doctorName" name="doctorName" required>
+        <br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        <br>
+
+        <label for="patientId">Patient ID:</label>
+        <input type="text" id="patientId" name="patientId" required>
+        <br>
+
+        <label for="dietSuggestion">Diet Suggestion:</label>
+        <textarea id="dietSuggestion" name="dietSuggestion" rows="4" cols="50" required></textarea>
+        <br>
+
+        <input class="input-button" type="submit" value="Submit Diet">
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!-- faq.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Diabetic Diet</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="faq-page">
+    <h1>Frequently Asked Questions - Diabetic Diet</h1>
+
+    <div class="faq-container">
+        <div class="faq-item" onclick="toggleAnswer('answer1')">
+            <h2>Q: What should be the ideal daily carbohydrate intake for a person with diabetes?</h2>
+            <p id="answer1" class="answer" style="display: none;">A: The ideal daily carbohydrate intake varies, but it's generally recommended to focus on complex carbohydrates and monitor blood glucose levels.</p>
+        </div>
+
+        <div class="faq-item" onclick="toggleAnswer('answer2')">
+            <h2>Q: Are there specific fruits that are better for people with diabetes?</h2>
+            <p id="answer2" class="answer" style="display: none;">A: Yes, fruits with lower glycemic index values, such as berries and melons, are generally better choices. Moderation is key.</p>
+        </div>
+
+        <div class="faq-item" onclick="toggleAnswer('answer3')">
+            <h2>Q: Can I include sweets in my diet occasionally if I have diabetes?</h2>
+            <p id="answer3" class="answer" style="display: none;">A: Occasional treats are allowed, but it's important to monitor portion sizes and maintain overall control of carbohydrate intake.</p>
+        </div>
+
+        <div class="faq-item" onclick="toggleAnswer('answer4')">
+            <h2>Q: What role does fiber play in a diabetic diet?</h2>
+            <p id="answer4" class="answer" style="display: none;">A: Fiber helps control blood sugar levels by slowing down the absorption of sugar. It's recommended to include fiber-rich foods like whole grains and vegetables.</p>
+        </div>
+
+        <div class="faq-item" onclick="toggleAnswer('answer5')">
+            <h2>Q: Should I follow a specific meal timing schedule?</h2>
+            <p id="answer5" class="answer" style="display: none;">A: Consistent meal timing can help regulate blood sugar levels. It's often recommended to eat smaller, balanced meals throughout the day.</p>
+        </div>
+
+        <div class="faq-item" onclick="toggleAnswer('answer6')">
+            <h2>Q: Is it necessary to count calories on a diabetic diet?</h2>
+            <p id="answer6" class="answer" style="display: none;">A: While calorie counting is not the primary focus, portion control and choosing nutrient-dense foods are essential for managing diabetes.</p>
+        </div>
+
+        <div class="faq-item" onclick="toggleAnswer('answer7')">
+            <h2>Q: How does protein intake affect blood sugar levels?</h2>
+            <p id="answer7" class="answer" style="display: none;">A: Protein has a minimal effect on blood sugar levels. Including lean protein sources can contribute to a balanced diabetic diet.</p>
+        </div>
+
+        <div class="faq-item" onclick="toggleAnswer('answer8')">
+            <h2>Q: Are there specific cooking methods recommended for a diabetic diet?</h2>
+            <p id="answer8" class="answer" style="display: none;">A: Healthier cooking methods, such as baking, grilling, and steaming, are recommended for a diabetic diet to reduce added fats and oils.</p>
+        </div>
+
+        <!-- Add more FAQ items as needed -->
+
+    </div>
+
+    <!-- Include back button or navigation if necessary -->
+    <div class="back-button">
+        <a href="home.html" class="button">Back to Home</a>
+    </div>
+
+    <script>
+        function toggleAnswer(answerId) {
+            var answer = document.getElementById(answerId);
+            answer.style.display = (answer.style.display === 'none' || answer.style.display === '') ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

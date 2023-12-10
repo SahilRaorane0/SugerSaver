@@ -1,0 +1,7 @@
+INSERT INTO MedicalRecords VALUES (4, 4, 35, 170, 70, TO_DATE('2023-10-20', 'YYYY-MM-DD'), 6, '3 times a week', 'Cardio', 'Moderate', 'Metformin, Aspirin', 'High blood pressure', 'Veg');
+INSERT INTO MedicalRecords VALUES (5, 5, 23, 140, 74, TO_DATE('2023-09-10', 'YYYY-MM-DD'), 7, '0 times a week', 'Running', 'High', 'Aspirin', 'Low Blood Pressure', 'Non-Veg');
+INSERT INTO MedicalRecords VALUES (6, 6, 43, 174, 69, TO_DATE('2023-08-29', 'YYYY-MM-DD'), 4, '2 times a week', 'Cycling', 'Low', 'None', 'Migrain', 'Vegan');
+INSERT INTO MedicalRecords VALUES (7, 7, 66, 164, 79, TO_DATE('2023-07-2', 'YYYY-MM-DD'), 3, '7 times a week', 'Swimming', 'Moderate', 'Metformin, Aspirin', 'High blood pressure', 'Veg');
+INSERT INTO MedicalRecords VALUES (8, 8, 37, 144, 72, TO_DATE('2023-06-3', 'YYYY-MM-DD'), 10, '3 times a week', 'Cardio', 'Low', 'Saradon', 'Severe Headache', 'Any');
+INSERT INTO MedicalRecords VALUES (9, 9, 87, 175, 40, TO_DATE('2023-05-12', 'YYYY-MM-DD'), 12, '4 times a week', 'Running', 'High', 'None', 'Nonve', 'Veg');
+INSERT INTO MedicalRecords VALUES (10, 10, 25, 189, 50, TO_DATE('2023-04-25', 'YYYY-MM-DD'), 7, '5 times a week', 'Walkiing', 'Moderate', 'Crocin', 'None', 'Non-Veg');

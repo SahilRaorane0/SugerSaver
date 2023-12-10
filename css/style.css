@@ -1,0 +1,236 @@
+/* style.css */
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    background-image: url('../images/Background10.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+h1 {
+    color: #333;
+}
+
+.options-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.options-container a {
+    text-decoration: none;
+    color: #fff; /* White text color */
+    margin: 10px;
+    padding: 30px 40px;
+    border: none;
+    border-radius: 20px; /* Curved edges */
+    background-color: #001f3f; /* Dark blue background */
+    display: inline-block;
+}
+
+.input-button {
+    text-decoration: none;
+    color: #fff; /* White text color */
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Curved edges */
+    background-color: #001f3f; /* Dark blue background */
+    display: inline-block;
+    cursor: pointer;
+}
+
+.input-button[disabled] {
+    cursor: not-allowed; /* Change cursor style when button is disabled */
+    background-color: #D3D3D3; /* Change background color for disabled state */
+}
+
+.login-container,
+.signup-container,
+.f_password-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    display: none;
+    margin-top: 20px;
+}
+
+.login-container input,
+.signup-container input,
+.f_password-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.login-container button,
+.signup-container button,
+.f_password-container button {
+    background-color: #001f3f; /* Dark blue background */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px; /* Curved edges */
+    cursor: pointer;
+}
+
+/* Add or modify styles as needed */
+
+body.home {
+    background-image: url('../images/home.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Add or modify styles as needed */
+
+body.personal-details-page,
+body.medical-details-page,
+body.doctor_personal_details_page,
+body.Patient_List_page,
+body.Doctors_List_page,
+body.updateDoctorProfile,
+body.updatePatientProfile,
+body.admim_personal_details_page,
+body.suggest_diet_page,
+body.faq-page,
+body.submitDiet_page,
+body.dietHistory,
+body.home-page {
+    font-family: Arial, sans-serif;
+    background-color: rgb(179, 220, 228);
+    background-image: url('../images/Background100.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+body.home-page h1 {
+    color: #0066cc; /* Blue color */
+    font-size: 40px; /* Increase the font size as needed */
+}
+
+body.personal-details-page form,
+body.updateDoctorProfile form,
+body.medical-details-page form,
+body.doctor_personal_details_page form,
+body.Patient_List_page form,
+body.Doctors_List_page form,
+body.updatePatientProfile form,
+body.admim_personal_details_page form,
+body.suggest_diet_page form,
+body.faq-page form,
+body.submitDiet_page form {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    overflow-y: auto;
+    align-self: center;
+}
+
+body.personal-details-page form label,
+body.medical-details-page form label,
+body.doctor_personal_details_page form label,
+body.Patient_List_page form label,
+body.Doctors_List_page form label,
+body.admim_personal_details_page form label,
+body.suggest_diet_page form label,
+body.faq-page form label,
+body.submitDiet_page form label,
+body.updateDoctorProfile form label,
+body.updateDoctorProfile form input,
+body.personal-details-page form input,
+body.medical-details-page form input,
+body.updatePatientProfile form input,
+body.updatePatientProfile form label,
+body.doctor_personal_details_page form input,
+body.Patient_List_page form input,
+body.Doctors_List_page form input,
+body.admim_personal_details_page form input,
+body.suggest_diet_page form input,
+body.faq-page form input,
+body.submitDiet_page form input {
+    margin-bottom: 15px;
+
+}
+
+body td,
+body td {
+    padding: 5px;
+}
+
+body th,
+body th {
+    padding: 5px;
+}
+
+
+body.personal-details-page form label,
+body.medical-details-page form label,
+body.doctor_personal_details_page form label,
+body.Patient_List_page form label,
+body.Doctors_List_page form label,
+body.updateDoctorProfile form label,
+body.updateDoctorProfile form input,
+body.updatePatientProfile form input,
+body.updatePatientProfile form label,
+body.admim_personal_details_page form label,
+body.suggest_diet_page form label,
+body.faq-page form label,
+body.submitDiet_page form label {
+    display: inline-block;
+    width: 200px;
+}
+
+/* Style for the Search Patient section */
+body.submitDiet_page div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+body.submitDiet_page div label,
+body.submitDiet_page div input,
+body.submitDiet_page div button {
+    margin: 8px 0;
+}
+
+body.submitDiet_page div::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -15px; /* half of the width of the triangle */
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+}

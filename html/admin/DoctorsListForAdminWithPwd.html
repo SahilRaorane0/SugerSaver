@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Details</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Add your CSS styles if needed -->
+    <script>
+
+        async function searchPatient() {
+            const searchInput = document.getElementById('searchPatient').value;
+
+            try {
+                // Replace 'YOUR_SERVER_SEARCH_ENDPOINT' with the actual URL to fetch search result data
+                const response = await fetch(`YOUR_SERVER_SEARCH_ENDPOINT?searchInput=${searchInput}`);
+
+                if (!response.ok) {
+                    throw new Error('Error fetching search result data');
+                }
+
+                const searchData = await response.json();
+
+                // Populate the table with search result data
+                populateTable(searchData);
+
+            } catch (error) {
+                console.error('Error:', error);
+            }
+      }
+
+      function populateTable(data) {
+        const tableBody = document.getElementById('patientTableBody');
+
+        // Clear existing rows
+        tableBody.innerHTML = '';
+
+        // Populate table rows with data
+        data.forEach(patient => {
+            const row = tableBody.insertRow();
+            const idCell = row.insertCell(0);
+            const firstNameCell = row.insertCell(1);
+            const lastNameCell = row.insertCell(2);
+            const emailCell = row.insertCell(3);
+            const userNameCell = row.insertCell(4);
+            const passwordCell = row.insertCell(5);
+            const actionCell = row.insertCell(6);
+
+            idCell.textContent = patient.id;
+            firstNameCell.textContent = patient.firstName;
+            lastNameCell.textContent = patient.lastName;
+            emailCell.textContent = patient.email;
+            userNameCell.innerHTML = patient.userName;
+            passwordCell.innerHTML = patient.password;
+            actionCell.innerHTML = patient.actionCell;
+        });
+    }
+
+
+        function navigateTo(page) {
+            switch (page) {
+                case 'updateDoctorProfile':
+                        window.location.href = 'updateDoctorProfile.html';
+                        break;
+                default:
+                    console.log('Unknown page');
+                    break;
+            }
+        }
+
+        // Function to make a GET request and populate the table
+        async function populateDoctorTable() {
+            try {
+                const response = await fetch('YOUR_BACKEND_API_ENDPOINT_DOCTORS');
+
+                if (!response.ok) {
+                    throw new Error('Error fetching doctor data');
+                }
+
+                const data = await response.json();
+
+                const tableBody = document.getElementById('doctorTableBody');
+
+                tableBody.innerHTML = '';
+
+                data.forEach(doctor => {
+                    const row = tableBody.insertRow();
+                    row.insertCell(0).textContent = doctor.id;
+                    row.insertCell(1).textContent = doctor.name;
+                    row.insertCell(2).textContent = doctor.email;
+                    row.insertCell(3).textContent = doctor.username;
+                    row.insertCell(4).textContent = doctor.password;
+                });
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Call the function to populate the table when the page is loaded
+        window.onload = populateDoctorTable;
+    </script>
+</head>
+
+<body class="Doctors_List_page">
+    <h1>List of Doctors</h1>
+
+    <div>
+        <label for="searchPatient">Search Patient:</label>
+        <input type="text" id="searchPatient" name="searchPatient" placeholder="Enter ID or Name">
+        <button class="input-button" onclick="searchPatient()">Search</button>
+    </div>
+
+    <form id="DoctorsListForm">
+
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>UserName</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+            <!-- Table body for dynamic data -->
+<!--            <tbody id="doctorTableBody"></tbody>-->
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Dhanya</td>
+                <td>Sangolli</td>
+                <td>dsangolli@hawk.iit.edu</td>
+                <td>dhanya</td>
+                <td>dhanya</td>
+                <td><button class="input-button" type="button" onclick="navigateTo('updateDoctorProfile')">Update</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+
+</body> 
+</html>

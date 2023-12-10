@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class ="updateDoctorProfile">
+<h1>Doctor Profile Information</h1>
+
+<form id="updateDoctorPersonalDetailsForm">
+
+    <label for="id">Id:</label>
+    <input type="number" id="id" name="id" required>
+    <br>
+
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="fname" required>
+    <br>
+
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" name="lname" required>
+    <br>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+
+    <button class="input-button" type="button" onclick="submitUpdatePersonalDetails()">Submit</button>
+</form>
+
+<script src="../../js/adminHome.js"></script>
+</body>
+</html>

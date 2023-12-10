@@ -1,0 +1,139 @@
+<!-- medical_records.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Routine Diabetes Encounter</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        checkUserRole()
+        populateFormWithData()
+      })
+
+      // Function to make a GET request and populate the form
+      async function populateFormWithData() {
+        try {
+          const response = await fetch('YOUR_BACKEND_API_ENDPOINT')
+
+          if (!response.ok) {
+            throw new Error('Error fetching data')
+          }
+
+          const data = await response.json()
+
+          document.getElementById('name').value = data.name
+          document.getElementById('height').value = data.height
+          document.getElementById('weight').value = data.weight
+          // ... (populate other fields)
+        } catch (error) {
+          console.error('Error:', error)
+        }
+      }
+
+      function disableButtonsAndInputs(role) {
+        console.log('calling disable buttons and inputs')
+
+        const buttons = document.querySelectorAll('button')
+        const inputs = document.querySelectorAll('input')
+        const textareas = document.querySelectorAll('textarea')
+
+        // Loop through buttons and disable them
+        buttons.forEach((button) => {
+          button.disabled = role === 'doctor'
+        })
+
+        // Loop through inputs and disable them
+        inputs.forEach((input) => {
+          input.disabled = role === 'doctor'
+        })
+
+        textareas.forEach((textarea) => {
+          textarea.disabled = role === 'doctor'
+        })
+      }
+
+      // Function to check the user's role and disable buttons and input fields accordingly
+      function checkUserRole() {
+        console.log('Checking user role')
+        const urlParams = new URLSearchParams(window.location.search)
+        const role = urlParams.get('role')
+
+        console.log('role - ' + role)
+
+        disableButtonsAndInputs(role)
+      }
+    </script>
+  </head>
+  <body class="medical-details-page">
+    <h1>Routine Diabetes Encounter</h1>
+
+    <form id="diabetesEncounterForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <br />
+
+      <label for="height">Height:</label>
+      <input type="text" id="height" name="height" required />
+      <br />
+
+      <label for="weight">Weight:</label>
+      <input type="text" id="weight" name="weight" required />
+      <br />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required />
+      <br />
+
+      <label for="HBAIC">When was the last HBAIC test done?</label>
+      <input type="date" id="HBAIC" name="HBAIC" required />
+      <br />
+
+      <label for="HBAIClevel">HBAIC level:</label>
+      <input type="number" id="HBAIClevel" name="HBAIClevel" required />
+      <br />
+
+      <label for="exercise">How frequently do you exercise? </label>
+      <input type="number" id="exercise" name="exercise" required />
+      <br />
+
+      <label for="exerciseType">What type of exercise exercise? </label>
+      <textarea
+        type="text"
+        id="exerciseType"
+        name="exerciseType"
+        rows="4"
+      ></textarea>
+      <br />
+
+      <label for="sugarIntake">How frequent is sugar intake? </label>
+      <input type="number" id="sugarIntake" name="sugarIntake" required />
+      <br />
+
+      <!-- Patient Status -->
+      <label>Any on going medication?:</label>
+      <input type="radio" id="medicationYes" name="medicationYes" value="yes" />
+      <label for="medicationYes">Yes</label>
+      <input type="radio" id="medicationNo" name="medicationNo" value="no" />
+      <label for="medicationNo">No</label>
+      <br />
+
+      <label for="healthIssue">Any health issue? :</label>
+      <textarea id="healthIssue" name="healthIssue" rows="4"></textarea>
+      <br />
+
+      <label for="preferedMeal">What is your prefered meal? </label>
+      <textarea type="text" id="preferedMeal" name="preferedMeal"></textarea>
+      <br />
+      <button
+        class="input-button"
+        type="button"
+        onclick="submitMedicalDetails();"
+      >
+        <script src="../../js/doctorHome.js"></script>
+        Submit
+      </button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+INSERT INTO Patient VALUES (4,'Patient', 'ID4', 'patient_id4@gmail.com', '123-468-7871', 'Male');
+INSERT INTO Patient VALUES (5,'Patient', 'ID5', 'patient_id5@gmail.com', '123-568-7872', 'Male');
+INSERT INTO Patient VALUES (6,'Patient', 'ID6', 'patient_id6@gmail.com', '123-668-7873', 'Male');
+INSERT INTO Patient VALUES (7,'Patient', 'ID7', 'patient_id7@gmail.com', '123-768-7874', 'Male');
+INSERT INTO Patient VALUES (8,'Patient', 'ID8', 'patient_id8@gmail.com', '123-868-7875', 'Male');
+INSERT INTO Patient VALUES (9,'Patient', 'ID9', 'patient_id9@gmail.com', '123-968-7876', 'Male');
+INSERT INTO Patient VALUES (10,'Patient', 'ID10', 'patient_id10@gmail.com', '123-068-7877', 'Male');
